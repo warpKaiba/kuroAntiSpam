@@ -27,7 +27,8 @@ CHECK_INTERVAL = 30
 #How many posts the script grabs from the timeline each time it checks (maximum 40)
 CHECK_NUMBER = 10
 
-#If True, will continue to check older+older posts down the timeline instead of checking for new ones. This will basically scroll down the timeline as fast as the server lets it so keep an eye on it
+#If True, will continue to check older+older posts down the timeline instead of checking for new ones.
+#This will wait for the CHECK_INTERVAL between batches of posts.
 SWEEP_DOWN_TIMELINE = False
 
 
@@ -67,8 +68,8 @@ def checkTimeline(max_id="999999999999999999"):
     for spammer, post_id in spammers: 
         sendReport(spammer, post_id)  
     if SWEEP_DOWN_TIMELINE == True:
-        checkTimeline(last_id)
         time.sleep(CHECK_INTERVAL)
+        checkTimeline(last_id)
 
 
 def checkContent(mew):
