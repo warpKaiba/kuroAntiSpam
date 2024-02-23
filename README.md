@@ -18,7 +18,7 @@ These permissions are required for the script to function:
 - write:reports - Write a report on the bot
 - admin:read - Check if your instance shares any follow/ers between your instances
 - admin:write:accounts - Suspend the bot
-- admin:write:domain_blocks - Block the domain if there are no follow/ers
+- admin:write:domain_blocks - Block the domain if there are no follow/ers (only needed if you want to silence or suspend the domain)
 - admin:write:reports - Close the report
 
 
@@ -34,5 +34,6 @@ The permissions are needed for these api calls:
 ## Use
 
 Edit kuroAntiSpam.py to change the YOUR_DOMAIN and ACCESS_TOKEN variables. You may also change how often the script checks the timeline, and how many posts it checks.
+You can change `DOMAIN_ACTION` to say what should happen to the domain of the instance the spam was detected on.
 
 ``python kuroAntiSpam.py``
